@@ -37,15 +37,14 @@ app.post("/send-message", async (req, res) => {
 });
 
 // ✅ API (optional)
-app.get("/api/get", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
-    const data = await Message.find().sort({ _id: -1 });
-    res.json(data);
+    const messages = await Message.find().sort({ _id: -1 });
+    res.render("home", { messages });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.send("Error loading page");
   }
 });
-
 // ✅ ADMIN LOGIN PAGE
 app.get("/admin/login", (req, res) => {
     res.render("admin-login");
