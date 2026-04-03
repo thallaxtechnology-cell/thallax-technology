@@ -1,12 +1,12 @@
 const cors = require("cors");
-app.use(cors());
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const Message = require("./models/Message");
 
-const app = express();
+const app = express();   // ✅ pehle app banao
 
+app.use(cors());
 // MongoDB Connect
 mongoose.connect("mongodb+srv://thallaxtechnology_db_user:Zb3P1mV3v4HaFlTF@cluster0.7avlgnw.mongodb.net/websiteDB?retryWrites=true&w=majority")
 .then(() => console.log("MongoDB Connected"))
