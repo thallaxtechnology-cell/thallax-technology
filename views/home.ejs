@@ -19,12 +19,16 @@
 <h2>Messages:</h2>
 
 <ul>
-  <% messages.forEach(function(msg) { %>
-    <li>
-      <b><%= msg.name %></b> (<%= msg.email %>) : <%= msg.message %>
-    </li>
-  <% }) %>
+    <% if(messages && messages.length > 0){ %>
+        <% messages.forEach(function(msg){ %>
+            <li>
+                <b><%= msg.name %></b> (<%= msg.email %>) :
+                <%= msg.message %>
+            </li>
+        <% }) %>
+    <% } else { %>
+        <li>No messages yet</li>
+    <% } %>
 </ul>
-
 </body>
 </html>
