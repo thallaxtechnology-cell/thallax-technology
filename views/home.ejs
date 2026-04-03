@@ -19,7 +19,7 @@
 <h2>Messages:</h2>
 
 <ul>
-  <% messages.forEach(msg => { %>
+  <% messages.forEach(function(msg) { %>
     <li>
       <b><%= msg.name %></b> (<%= msg.email %>) : <%= msg.message %>
     </li>
