@@ -1,1 +1,23 @@
-<h1>Dashboard Working ✅</h1>
+<h1>Admin Dashboard ✅</h1>
+
+<a href="/admin/logout">Logout</a>
+
+<hr>
+
+<h2>All Messages</h2>
+
+<% if (messages.length === 0) { %>
+    <p>No messages yet</p>
+<% } %>
+
+<% messages.forEach(msg => { %>
+    <div style="border:1px solid black; padding:10px; margin:10px;">
+        <p><b>Name:</b> <%= msg.name %></p>
+        <p><b>Email:</b> <%= msg.email %></p>
+        <p><b>Message:</b> <%= msg.message %></p>
+
+        <form action="/admin/delete/<%= msg._id %>" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+<% }) %>
