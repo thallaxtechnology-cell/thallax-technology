@@ -49,7 +49,7 @@ app.get("/", async (req, res) => {
 });
 // ✅ ADMIN LOGIN PAGE
 app.get("/admin/login", (req, res) => {
-    res.render("admin-login");
+    res.render("admin");
 });
 
 // ✅ ADMIN LOGIN CHECK
