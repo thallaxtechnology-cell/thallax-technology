@@ -16,8 +16,8 @@
         <p><b>Email:</b> <%= msg.email %></p>
         <p><b>Message:</b> <%= msg.message %></p>
 
-        <form action="/admin/delete/<%= msg._id %>" method="POST">
-            <button type="submit">Delete</button>
-        </form>
+        <form action="/delete/<%= msg._id %>" method="POST">
+  <button type="submit">Delete</button>
+</form>
     </div>
 <% }) %>
