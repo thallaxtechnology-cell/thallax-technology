@@ -31,11 +31,10 @@ app.get("/", async (req, res) => {
 });
 
 // ✅ SAVE MESSAGE
-app.post("/send-message", async (req, res) => {
-    await Message.create(req.body);
-    res.redirect("/");
+app.post("/send", async (req, res) => {
+  await Message.create(req.body);
+  res.redirect("/");
 });
-
 // ✅ API (optional)
 app.get("/", async (req, res) => {
   try {
