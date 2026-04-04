@@ -61,7 +61,24 @@ app.post("/admin/login", (req, res) => {
     res.send("Wrong Login");
   }
 });
+// ✅ CONTACT FORM SUBMIT
+app.post("/submit", async (req, res) => {
+  try {
+    const { name, email, phone, message } = req.body;
 
+    await Message.create({
+      name,
+      email,
+      phone,
+      message
+    });
+
+    res.send("Message Saved Successfully ✅");
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Error saving data");
+  }
+});
 // ✅ ADMIN DASHBOARD
 app.get("/admin/dashboard", async (req, res) => {
   if(!req.session.admin) return res.redirect("/admin/login");
