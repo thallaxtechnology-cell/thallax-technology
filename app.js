@@ -29,7 +29,10 @@ app.get("/", async (req, res) => {
     const messages = await Message.find().sort({ _id: -1 });
     res.render("home", { messages });
 });
-
+app.get("/admin", async (req, res) => {
+  const messages = await Message.find().sort({ _id: -1 });
+  res.render("admin", { messages });
+});
 // ✅ SAVE MESSAGE
 app.post("/send", async (req, res) => {
   await Message.create(req.body);
