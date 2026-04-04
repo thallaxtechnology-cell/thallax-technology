@@ -86,7 +86,16 @@ app.get("/admin/dashboard", async (req, res) => {
   const messages = await Message.find().sort({ _id: -1 });
   res.render("admin-dashboard", { messages });
 });
-
+// ✅ DELETE MESSAGE
+app.post("/delete/:id", async (req, res) => {
+  try {
+    await Message.findByIdAndDelete(req.params.id);
+    res.redirect("/admin/dashboard");
+  } catch (err) {
+    console.log(err);
+    res.send("Error deleting message");
+  }
+});
 // SERVER
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server Started on ${PORT}`));
